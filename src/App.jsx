@@ -10,10 +10,12 @@ const App = () => {
   const search = async (e) => {
     if (e.key === "Enter") {
       const data = await fetchWeather(query);
+
       setWeather(data);
       setQuery("");
     }
   };
+
   return (
     <div className="main-container">
       <input
@@ -36,9 +38,9 @@ const App = () => {
           </div>
           <div className="info">
             <img
-              src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
-              alt="{weather.weather[0].description}"
               className="city-icon"
+              src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+              alt={weather.weather[0].description}
             />
             <p>{weather.weather[0].description}</p>
           </div>
